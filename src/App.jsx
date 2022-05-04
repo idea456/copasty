@@ -1,10 +1,15 @@
 import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Layout from "@/components/Layout";
+import Clipboard from "@/views/Clipboard";
 
 function App() {
     return (
-        <div>
-            <h1>Hewwo</h1>
-        </div>
+        <ChakraProvider>
+            <Layout>
+                <Clipboard />
+            </Layout>
+        </ChakraProvider>
     );
 }
 

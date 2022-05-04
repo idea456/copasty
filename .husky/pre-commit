@@ -6,19 +6,19 @@ echo '⏱️ Formatting and tidying up the project...';
 npm run format
 
 # check tsconfig standards
-npm run check-types || 
+npm run check:types || 
 (
     echo '❌ Failed Typescript check.';
     false;
 )
 
-npm run check-format || 
+npm run check:format || 
 (
     echo '❌ Prettier check failed.';
     false;
 )
 
-npm run check-lint || 
+npm run check:lint || 
 (
     echo '❌ Linting failed.';
     false;

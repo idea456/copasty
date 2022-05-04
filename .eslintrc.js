@@ -13,10 +13,22 @@ module.exports = {
         sourceType: "module",
     },
     plugins: ["react", "@typescript-eslint"],
-    rules: {},
+    rules: {
+        "import/no-extraneous-dependencies": [
+            "error",
+            { devDependencies: true },
+        ],
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
+    },
     settings: {
         react: {
             version: "latest",
+        },
+        "import/resolver": {
+            node: {
+                extensions: [".js", ".jsx", ".ts", ".tsx"],
+            },
         },
     },
 };

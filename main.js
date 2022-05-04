@@ -1,20 +1,32 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, dialog } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
-const fs = require("fs");
+// const fs = require("fs");
+
+try {
+    // eslint-disable-next-line global-require
+    require("electron-reloader")(module);
+    // eslint-disable-next-line no-empty
+} catch (_) {}
 
 require("@electron/remote/main").initialize();
 
 function createWindow() {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
-        width: 800,
+        width: 400,
         height: 600,
+        resizable: false,
+        titleBarStyle: "hiddenInset",
         webPreferences: {
-            // preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, "preload.js"),
             enableRemoteModule: true,
         },
+    });
+
+    mainWindow.once("ready-to-show", () => {
+        mainWindow.show();
     });
 
     // and load the index.html of the app.
@@ -28,12 +40,12 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 }
 
-const getFilesFromUser = async () => {
-    const files = await dialog.showOpenDialog({
-        properties: ["openFile"],
-    });
-    console.log(files);
-};
+// const getFilesFromUser = async () => {
+//     const files = await dialog.showOpenDialog({
+//         properties: ["openFile"],
+//     });
+//     console.log(files);
+// };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -46,8 +58,6 @@ app.whenReady().then(() => {
         // dock icon is clicked and there are no other windows open.
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });
-
-    getFilesFromUser();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -57,5 +67,9 @@ app.on("window-all-closed", () => {
     if (process.platform !== "darwin") app.quit();
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// contextBridge.exposeInMainWorld("electron", {
+//     testFunction: () => {
+//         console.log("test successful!");
+//         return "test";
+//     },
+// });

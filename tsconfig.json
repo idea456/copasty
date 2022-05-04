@@ -1,6 +1,6 @@
 {
+    "extends": "./tsconfig.paths.json",
     "compilerOptions": {
-        "baseUrl": ".",
         "outDir": "build/dist",
         "module": "esnext",
         "target": "es5",
@@ -9,7 +9,6 @@
         "allowJs": true,
         "jsx": "react",
         "moduleResolution": "node",
-        "rootDir": "src",
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
@@ -17,7 +16,8 @@
         "importHelpers": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": true
+        "noUnusedLocals": true,
+        "skipLibCheck": true
     },
     "exclude": [
         "node_modules",
