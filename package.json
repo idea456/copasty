@@ -1,0 +1,26 @@
+{
+    "name": "copasty-app",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "tauri": "tauri",
+        "prettier": "npx prettier --write .",
+        "check:format": "prettier --check .",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@tauri-apps/api": "^1.0.0-rc.5",
+        "preact": "^10.5.15"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.17.10",
+        "@preact/preset-vite": "^2.1.5",
+        "@tauri-apps/cli": "^1.0.0-rc.10",
+        "prettier": "^2.6.2",
+        "vite": "^2.9.7",
+        "husky": "^8.0.0"
+    }
+}
