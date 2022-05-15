@@ -40,6 +40,9 @@
         "extends": "preact"
     },
     "lint-staged": {
-        "*": "npm run prettier && npm run check:lint"
+        "*.js": [
+            "prettier --write",
+            "eslint --ext .js,.jsx --ignore-path .gitignore --fix src"
+        ]
     }
 }
