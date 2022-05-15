@@ -1,13 +1,15 @@
-import { Logo } from './logo'
+import { Fragment } from 'preact'
+import Logo from './logo'
 
-export function App() {
+export default function App() {
     return (
-        <>
+        <Fragment>
             <Logo />
+            {console.log('e')}
             <p>Hello Vite + Preact!</p>
             <p>
                 <a
-                    class="link"
+                    className="link"
                     href="https://preactjs.com/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -15,6 +17,6 @@ export function App() {
                     Learn Preact
                 </a>
             </p>
-        </>
+        </Fragment>
     )
 }

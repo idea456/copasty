@@ -3,29 +3,4 @@
 
 echo '⏱️ Formatting and tidying up the project...';
 
-# check tsconfig standards
-# npm run check:types || 
-# (
-#     echo '❌ Failed Typescript check.';
-#     false;
-# )
-
-npm run check:format || 
-(
-    echo '❌ Prettier check failed.';
-    false;
-)
-
-# npm run check:lint || 
-# (
-#     echo '❌ Linting failed.';
-#     false;
-# )
-
-echo '✅ All formatting and checks done!';
-
-# npm run build || 
-# (
-#     echo '❌ Build failed!';
-#     false;
-# )
+npx lint-staged --allow-empty
