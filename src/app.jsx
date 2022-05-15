@@ -6,7 +6,7 @@ export default function App() {
         <Fragment>
             <Logo />
             {console.log('e')}
-            <p>Hello Vite + Preact!</p>
+            <p>Hello Vite + sPreact!</p>
             <p>
                 <a
                     className="link"

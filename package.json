@@ -40,7 +40,7 @@
         "extends": "preact"
     },
     "lint-staged": {
-        "*.js": [
+        "*.{js, jsx, css}": [
             "prettier --write",
             "eslint --ext .js,.jsx --ignore-path .gitignore --fix"
         ]
